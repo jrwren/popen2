@@ -10,7 +10,7 @@ void test_popen2() {
     int in, out, err;
     int res;
     pid_t pid;
-    char *argv[4];
+    const char *argv[4];
     char buf[1024];
     argv[0] = "tr";
     argv[1] = "[a-z]";

@@ -4,7 +4,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-pid_t popen2(char *const argv[], int *in, int *out, int *err) {
+pid_t popen2(const char *const argv[], int *in, int *out, int *err) {
     int res;
     pid_t pid = 0;
     int inpipefd[2];
@@ -39,7 +39,7 @@ pid_t popen2(char *const argv[], int *in, int *out, int *err) {
         close(outpipefd[1]);
         close(errpipefd[0]);
         close(errpipefd[1]);
-        execvp(argv[0], argv);
+        execvp(argv[0], (char* const*)argv);
         perror("exec failed");
         exit(1);
     }
