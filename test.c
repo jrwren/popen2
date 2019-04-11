@@ -12,13 +12,12 @@ void test_popen2() {
     pid_t pid;
     char *argv[4];
     char buf[1024];
-    char ** error;
     argv[0] = "tr";
     argv[1] = "[a-z]";
     argv[2] = "[A-Z]";
     argv[3] = NULL;
     
-    if(0>=(pid = popen2(argv, &in, &out, &err, error))) {
+    if(0>=(pid = popen2(argv, &in, &out, &err))) {
         fprintf(stderr, "TEST FAIL: popen2 errno: %d\n", errno);
         return;
     }

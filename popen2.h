@@ -7,4 +7,4 @@
  * 
  * returns: pid of the child process or a negative number if error is set.
  **/
-pid_t popen2(char *const argv[], int *in, int *out, int *err, char **error);
+pid_t popen2(char *const argv[], int *in, int *out, int *err);
